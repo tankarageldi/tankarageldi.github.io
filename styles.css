@@ -1,0 +1,201 @@
+html {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 17.6px;
+  color: #000;
+  background-color: #fff;
+  margin: 0;
+  padding: 0;
+}
+span {
+  color: grey;
+}
+footer {
+  position: fixed;
+  width: 100%;
+  bottom: 40px;
+  padding: 0px;
+  text-align: center;
+  color: black;
+}
+footer a {
+  color: grey;
+  text-decoration: none;
+  margin: 5px;
+}
+footer a:hover {
+  color: black;
+}
+header nav {
+  display: flex;
+  justify-content: center;
+}
+header nav a {
+  color: gray;
+  text-decoration: none;
+  margin: 0 10px;
+}
+header nav a:hover {
+  color: black;
+}
+header {
+  padding: 20px;
+}
+
+.content {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: calc(100vh - 80px);
+  padding: 0 20px;
+}
+
+.folder {
+  text-align: center;
+}
+
+.folder img {
+  width: 70px;
+  height: auto;
+}
+/* New Education Page Styling */
+.education-container {
+  width: 80%;
+  margin: 50px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* School Name & Dates */
+.school-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid grey;
+  padding-bottom: 10px;
+}
+
+.school-name {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.date-range {
+  font-size: 14px;
+  font-weight: bold;
+  color: grey;
+}
+
+/* Degree Info */
+.degree-info {
+  font-size: 14px;
+}
+
+/* List of Activities */
+.activities {
+  list-style-type: square;
+  padding-left: 20px;
+}
+
+/* Projects Section */
+.projects-section {
+  margin-top: 30px;
+}
+
+.projects-header {
+  font-size: 24px;
+  font-weight: bold;
+  color: #0073e6;
+  text-decoration: none;
+}
+
+.projects-header:hover {
+  text-decoration: underline;
+}
+
+/* Sideways Project Gallery */
+.projects-gallery {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  padding-top: 10px;
+  gap: 30px; /* Adds more space between projects */
+}
+
+.project {
+  flex: 0 0 auto;
+  width: 150px;
+  text-align: center;
+}
+.project img {
+  width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease-in-out;
+}
+
+.project img:hover {
+  transform: scale(1.05);
+}
+.projects-description {
+  font-size: 14px;
+  color: grey;
+  margin-bottom: 30px;
+  width: 70%;
+}
+.experience-container {
+  width: 80%;
+  margin: 50px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+/* Experience Header */
+.experience-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid grey;
+  padding-bottom: 10px;
+}
+
+.experience-title {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.experience-location {
+  font-size: 14px;
+  font-weight: bold;
+  color: grey;
+}
+
+/* Job Sections */
+.job {
+  margin-top: 20px;
+}
+
+.job h2 {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.job h3 {
+  font-size: 14px;
+  color: grey;
+}
+
+.job-dates {
+  font-size: 13px;
+  color: grey;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.job-responsibilities {
+  list-style-type: square;
+  padding-left: 20px;
+}
