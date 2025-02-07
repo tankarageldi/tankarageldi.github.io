@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="pages" id="projects">
+<html lang="en">
   <head>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -9,23 +9,249 @@
     />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>my projects</title>
+    <title>projects</title>
     <link rel="icon" href="../data/favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" type="text/css" href="../styles.css" />
+    <style>
+      html {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 13px;
+        font-weight: 400;
+        line-height: 17.6px;
+        color: #000;
+        background-color: #fff;
+        margin: 0;
+        padding: 0;
+      }
+
+      .projects-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 90vh;
+        position: relative;
+      }
+
+      .arrow {
+        font-size: 40px;
+        cursor: pointer;
+        user-select: none;
+        padding: 10px;
+        color: grey;
+        transition: color 0.2s;
+      }
+
+      .arrow:hover {
+        color: black;
+      }
+
+      .project-wrapper {
+        display: flex;
+        width: 80%;
+        max-width: 1200px;
+        align-items: center;
+        gap: 40px;
+      }
+
+      .project-image {
+        flex: 1;
+        max-width: 50%;
+      }
+
+      .project-image img {
+        width: 100%;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        transition: transform 0.3s ease-in-out;
+      }
+
+      .project-image img:hover {
+        transform: scale(1.05);
+      }
+
+      .project-info {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100%;
+      }
+
+      .project-title {
+        font-size: 24px;
+        font-weight: bold;
+      }
+
+      .project-subtitle {
+        font-size: 16px;
+        color: grey;
+        margin-top: 5px;
+      }
+
+      .project-description {
+        font-size: 14px;
+        color: black;
+        margin-top: 10px;
+        max-width: 100%;
+      }
+
+      .tech-stack {
+        display: flex;
+        gap: 10px;
+        margin-top: 15px;
+      }
+
+      .tech-item {
+        background-color: grey;
+        color: white;
+        padding: 5px 10px;
+        border-radius: 50%;
+        font-size: 12px;
+        text-align: center;
+        min-width: 30px;
+      }
+
+      .hidden {
+        display: none;
+      }
+      .projects-welcome {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    </style>
   </head>
+  <header class="header">
+    <nav>
+      <a href="../index.html">Home</a>
+    </nav>
+  </header>
   <body>
-    <header class="header">
-      <nav>
-        <a href="../index.html">Home</a>
-      </nav>
-    </header>
-    <p>
-      im studying for my midterms right now, im going to fix this page. If
-      you're seeing this, please check my projects from the link on the footer.
-      :)
-    </p>
+    <div class="projects-container">
+      <div class="arrow left-arrow" onclick="prevProject()">&lt;</div>
+
+      <div class="project-wrapper">
+        <div class="project-image">
+          <a id="project-link" href="#" target="_blank">
+            <img id="project-img" src="" alt="Project Image" />
+          </a>
+        </div>
+
+        <div class="project-info">
+          <div class="project-title" id="project-title"></div>
+          <div class="project-subtitle" id="project-subtitle"></div>
+          <div class="project-description" id="project-description"></div>
+          <div class="tech-stack" id="tech-stack"></div>
+        </div>
+      </div>
+
+      <div class="arrow right-arrow" onclick="nextProject()">&gt;</div>
+    </div>
+
+    <script>
+      const projects = [
+        {
+          title: "NBA Points Predictor",
+          subtitle: "Machine Learning",
+          description:
+            "A full stack web application on the development phase, powered with AI model which can predict any given players over/under lines for the night. Working with 40% accuracy as of today, working on making the model predictions more accurate. Aim is 70-80% accuracy on the picks.",
+          img: "../data/nbaparlay.png",
+          link: "https://github.com/tankarageldi/nba-parlay",
+          tech: ["Python", "Scikit-learn", "React"],
+        },
+        {
+          title: "Blog Application",
+          subtitle: "Full-Stack Development",
+          description:
+            "A full-stack blog application built with Node.js, Express, MongoDB, JavaScript, HTML, and CSS. This application allows users to create, edit, and delete blog posts, and engage with content.",
+          img: "../data/blogapppic.png",
+          link: "https://github.com/tankarageldi/blog-app",
+          tech: ["JavaScript", "MongoDB", "Node.js"],
+        },
+        {
+          title: "Flag Guessing App",
+          subtitle: "Web Development",
+          description:
+            "This is a simple web application that tests your knowledge of country flags. Users are presented with a flag image and must guess the corresponding country name.",
+          img: "../data/capitalgame.png",
+          link: "https://github.com/tankarageldi/capitalgame",
+          tech: ["JavaScript", "PostgreSQL", "Node.js"],
+        },
+        {
+          title: "Flappy Bird Learner",
+          subtitle: "Machine Learning",
+          description:
+            "This projects is a visual machine learning project, where the machine plays flappy bird with multiple instances and learns to play it without dying.",
+          img: "../data/flappy.jpg",
+          link: "https://github.com/tankarageldi/flappybird",
+          tech: ["Python"],
+        },
+        {
+          title: "Sheepy Time",
+          subtitle: "Object Oriented Design",
+          description:
+            "Sheepy Time Board Game, digital version implemented to play on the Terminal. Built with MVC structure and followed SOLID principles",
+          img: "../data/sheepytime.webp",
+          link: "https://github.com/tankarageldi/sheepytime-board-game",
+          tech: ["Java", "OOP", "JUnit"],
+        },
+        {
+          title: "Pitch Perfect App",
+          subtitle: "JavaFX App",
+          description:
+            "Pitch Perfect App is for helping music students improve their sight reading abilities. Supporting MIDI keyboard connectibility, and with simple design, users can practice their sight reading skills with in application piano sound system.",
+          img: "../data/pitchperfect.png",
+          link: "https://github.com/tankarageldi/pitchperfectapp",
+          tech: ["Java", "JavaFX", "Scenebuilder"],
+        },
+        {
+          title: "World Solver",
+          subtitle: "Machine Learning",
+          description:
+            "Wordle Solver project uses information theory based approaches such as entropy and information gain to calculate the optimized guesses, reducing the number of attempts needed to find the correct solution, and finds the correct solution.",
+          img: "../data/worlde.png",
+          link: "https://github.com/tankarageldi/wordle-solver",
+          tech: ["Python"],
+        },
+      ];
+
+      let currentIndex = 0;
+
+      function updateProject() {
+        const project = projects[currentIndex];
+        document.getElementById("project-title").textContent = project.title;
+        document.getElementById("project-subtitle").textContent =
+          project.subtitle;
+        document.getElementById("project-description").textContent =
+          project.description;
+        document.getElementById("project-img").src = project.img;
+        document.getElementById("project-link").href = project.link;
+
+        const techStackContainer = document.getElementById("tech-stack");
+        techStackContainer.innerHTML = "";
+
+        project.tech.forEach((tech) => {
+          const techItem = document.createElement("div");
+          techItem.className = "tech-item";
+          techItem.textContent = tech;
+          techStackContainer.appendChild(techItem);
+        });
+      }
+
+      function nextProject() {
+        currentIndex = (currentIndex + 1) % projects.length;
+        updateProject();
+      }
+
+      function prevProject() {
+        currentIndex = (currentIndex - 1 + projects.length) % projects.length;
+        updateProject();
+      }
+
+      document.addEventListener("DOMContentLoaded", updateProject);
+    </script>
     <footer class="footer">
-      <a href="https://github.com/tankarageldi" target="_blank">github</a>
+      <a href="https://www.github.com/tankarageldi/" target="_blank">github</a>
     </footer>
   </body>
 </html>
